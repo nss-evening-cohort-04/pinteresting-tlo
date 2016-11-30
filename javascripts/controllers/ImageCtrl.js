@@ -6,7 +6,7 @@ app.controller("ImageCtrl", function($scope, $rootScope, ItemFactory){
 
 	let getItems = function(){
 		console.log("test test");
-		ItemFactory.getItemList($rootScope.users.uid).then(function(fbItems) {
+		ItemFactory.getBoards($rootScope.users.uid).then(function(fbItems) {
 			$scope.items = fbItems;
 		});
 	};
