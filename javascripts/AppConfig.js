@@ -43,6 +43,11 @@ app.config(function($routeProvider){
       templateUrl: 'partials/auth.html', //see partials folder- auth- this logs in user
       controller: 'AuthCtrl' // see new controller file
     })
+    .when('/user-pins', {
+      templateUrl: 'partials/user-pins.html', //see partials folder
+      controller: 'UserPinsCtrl', // see new controller file
+      resolve: {isAuth}
+    })
     .otherwise('/auth');
 
 });
