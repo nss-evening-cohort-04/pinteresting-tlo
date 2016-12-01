@@ -1,5 +1,3 @@
-
-
 <div class="col-xs-12 searchbar">
 	<div class="input-group">
 		<input type="text" class="form-control" placeholder="Search for ..." ng-model="searchText">
@@ -7,8 +5,24 @@
 			<button class="btn btn-default" ng-click="searchIMGURclick()"><i class="fa fa-search"></i></button>
 		</span>
 	</div>
-	<h1>show me</h1>
 </div>
+
 <div ng-repeat="pic in imgurResults">
-	<img ng-src="{{pic.link}}">
+	 <img class="searchedImages col-md-4" ng-src="{{pic.link}}">
+</div>
+
+<div class="row" ng-repeat="board in boards" ng-show="BoardContainer">
+		<div class="boards col-xs-4" ng-click="selectedBoard(board.id,board.title)">
+			<h1>{{board.title}}</h1>
+				<div class="col-xs-6" ng-repeat="pin in pins | filter:board.id">
+					<img class="imgSize" src="{{pin.url}}">
+				</div>
+		</div>
+</div>
+
+<div ng-show="SelectedBoard">
+		<h1>{{SelectedBoardTitle}}</h1>
+			<div class="col-xs-6" ng-repeat="pin in pins | filter: {boardid : SelectedBoardID}">
+					<img src="{{pin.url}}">
+			</div>
 </div>
