@@ -5,7 +5,7 @@ app.controller("NavCtrl", function($scope){
 		url: "#/logout"
 	},
 	{	name:"My Boards",
-		url:"#/user-pins"
+		url:"#/boards"
 	}
 	];
 });
