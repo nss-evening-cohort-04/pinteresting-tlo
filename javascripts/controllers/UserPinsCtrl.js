@@ -3,6 +3,7 @@
 app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
   $scope.welcome = "hello";     // this is like a console log AKA it tests it
   $scope.boards = [];    //we put this info (data for people/to do items/etc) in FB database
+  $scope.pics = [];
 
   let getItems = function(){
     ItemFactory.getBoards($rootScope.user.uid).then(function(boards){ //what is here needs to be right below this
@@ -19,6 +20,17 @@ app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
     ItemFactory.deleteItem(itemId).then(function(response){
       getItems();
     });
+  };
+
+  $scope.imgurResults = [];
+
+  $scope.searchIMGURclick = function() {
+    console.log("clicked search");
+    ItemFactory.searchIMGUR($scope.searchText)
+      .then(function(searchResults){
+        $scope.imgurResults = searchResults;
+        console.log("hello", $scope.imgurResults);
+      });
   };
 
 
