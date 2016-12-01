@@ -1,7 +1,7 @@
 "use strict";
 
 
-app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG) {
+app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG, IMGUR) {
 	
 	var getBoards = function(userId){
 		return $q((resolve, reject)=>{
@@ -39,6 +39,24 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG) {
 		});
 	};
 
+	var searchIMGUR = function(searchPics) {
+		var pics = [];
+		return $q(function(resolve, reject){
+			$http({
+				headers:{"Authorization": "Client-ID " + IMGUR.client_id},
+				url: `https://api.imgur.com/3/gallery/t/${searchPics}`,
+				method: "GET"
+			})
+			.success(function(PicObject){
+				pics = PicObject.data.items;
+				console.log("test return", PicObject);
+				resolve(pics);
+			});
+		}); 
+	};
 
-	return{getBoards:getBoards, getPins:getPins};
-});
+
+
+
+				return{getBoards:getBoards, getPins:getPins, searchIMGUR:searchIMGUR};
+			});
