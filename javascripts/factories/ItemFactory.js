@@ -2,7 +2,8 @@
 
 
 app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG, IMGUR) {
-	
+
+
 	var getBoards = function(userId){
 		return $q((resolve, reject)=>{
 			$http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json?orderBy="uid"&equalTo="${userId}"`)
@@ -52,11 +53,12 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG, IMGUR) {
 				console.log("test return", PicObject);
 				resolve(pics);
 			});
-		}); 
+		});
 	};
 
 
 
+return{getBoards:getBoards, getPins:getPins, searchIMGUR:searchIMGUR};
+});
 
-				return{getBoards:getBoards, getPins:getPins, searchIMGUR:searchIMGUR};
-			});
+

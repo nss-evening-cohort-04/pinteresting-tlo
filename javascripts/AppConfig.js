@@ -48,6 +48,12 @@ app.config(function($routeProvider){
       controller: 'UserPinsCtrl', // see new controller file
       resolve: {isAuth}
     })
+    .when('/user-new-pins', {
+      templateUrl: 'partials/new-pin.html', //see partials folder
+      controller: 'NewPinCtrl', // see new controller file
+      resolve: {isAuth}
+    })
+
     .otherwise('/auth');
 
 });
