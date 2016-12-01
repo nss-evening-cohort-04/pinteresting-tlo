@@ -22,3 +22,8 @@ img {
   margin-bottom: 10px;
   height: 100px;
   width: 100px; }
+
+.searchedImages {
+  width: 300px;
+  height: 300px;
+  margin: 5px; }

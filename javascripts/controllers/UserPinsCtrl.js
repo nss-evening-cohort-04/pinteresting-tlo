@@ -1,10 +1,9 @@
 "use strict";
 
-
-
 app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
   $scope.welcome = "hello";     // this is like a console log AKA it tests it
   $scope.boards = [];    //we put this info (data for people/to do items/etc) in FB database
+  $scope.pics = [];
 
   $scope.BoardContainer = true;
   $scope.SelectedBoard = false;
@@ -32,6 +31,17 @@ app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
     console.log("boardid", Boardid);
     $scope.SelectedBoardID = Boardid;
     $scope.SelectedBoardTitle = Title;
+};
+
+  $scope.imgurResults = [];
+
+  $scope.searchIMGURclick = function() {
+    console.log("clicked search");
+    ItemFactory.searchIMGUR($scope.searchText)
+      .then(function(searchResults){
+        $scope.imgurResults = searchResults;
+        console.log("hello", $scope.imgurResults);
+      });
   };
 
 
