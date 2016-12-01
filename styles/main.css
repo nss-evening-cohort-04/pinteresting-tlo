@@ -9,3 +9,8 @@ img {
 
 .searchbar {
   margin-top: 7px; }
+
+.searchedImages {
+  width: 300px;
+  height: 300px;
+  margin: 5px; }

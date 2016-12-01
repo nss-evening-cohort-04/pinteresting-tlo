@@ -6,10 +6,9 @@
 			<button class="btn btn-default" ng-click="searchIMGURclick()"><i class="fa fa-search"></i></button>
 		</span>
 	</div>
-	<h1>show me</h1>
 </div>
 <div ng-repeat="pic in imgurResults">
-	<img ng-src="{{pic.link}}">
+	<img class="searchedImages col-md-4" ng-src="{{pic.link}}">
 </div>
 
 
