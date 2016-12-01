@@ -71,26 +71,32 @@
     },
     "boards": {
         "board0": {
+        	"boardid":"board0",
             "uid": "buaBQpPvsBVfHdZyhsyziEECcge2",
             "title": "lol cats"
         },
         "board1": {
+        	"boardid":"board1",
             "uid": "buaBQpPvsBVfHdZyhsyziEECcge2",
             "title": "doggys"
         },
         "board2": {
+        	"boardid":"board2",
             "uid": "aBQ2aC3zTneqPtt2NTMOKwhL3fe2",
             "title": "lol dogs"
         },
         "board3": {
+        	"boardid":"board3",
             "uid": "aBQ2aC3zTneqPtt2NTMOKwhL3fe2",
             "title": "lol car"
         },
         "board4": {
+        	"boardid":"board4",
             "uid": "0UDY4qm362Q3KDxHfX91VY0hktK2",
             "title": "tommy dogs"
         },
         "board5": {
+        	"boardid":"board5",
             "uid": "0UDY4qm362Q3KDxHfX91VY0hktK2",
             "title": "more tommy dog"
         }
