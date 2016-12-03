@@ -55,8 +55,42 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG, IMGUR) {
         });
     };
 
+    var postNewPin = function(newPin){
+		return $q((resolve, reject) => {
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify({
+				uid: newPin.uid,
+				boardid: newPin.boardid,
+				url: newPin.url,
+				imgtitle: newPin.imgtitle
+			})
+			)
+			.success(function(postResponse){
+				resolve(postResponse);
+			})
+			.error(function(postError){
+				reject(postError);
+			});
+		});
+	};
+
+	var postNewBoard = function(newBoard){
+		return $q((resolve, reject) => {
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify({
+				boardid: newBoard.boardid,
+				uid: newBoard.uid,
+				title: newBoard.imgtitle
+			})
+			)
+			.success(function(postResponse){
+				resolve(postResponse);
+			})
+			.error(function(postError){
+				reject(postError);
+			});
+		});
+	};
 
 
 
-                return{getBoards:getBoards, getPins:getPins, searchIMGUR:searchIMGUR};
+                return{getBoards:getBoards, getPins:getPins, searchIMGUR:searchIMGUR, postNewPin:postNewPin, postNewBoard:postNewBoard};
             });

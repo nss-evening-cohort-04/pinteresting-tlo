@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
+app.controller("UserPinsCtrl", function($scope, $rootScope, $location, ItemFactory){
   $scope.welcome = "hello";     // this is like a console log AKA it tests it
   $scope.boards = [];    //we put this info (data for people/to do items/etc) in FB database
   $scope.pics = [];
@@ -43,6 +43,16 @@ app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
         console.log("hello", $scope.imgurResults);
       });
   };
+
+  $scope.addNewPin = function(imgID){
+    $location.url("/new-pin");
+  };
+
+  $scope.addPinToBoard = function(){
+    ItemFactory.postNewPin($scope.newPin).then(function(itemId){
+      $scope.newPin = {};
+      });
+  }
 
 
 });
