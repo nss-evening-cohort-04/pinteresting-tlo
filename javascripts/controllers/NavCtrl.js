@@ -13,7 +13,7 @@ app.controller("NavCtrl", function($scope){
       url:"#/user-new-pins"
   },
 	{	name:"My Boards",
-		url:"#/user-pins"
+		url:"#/boards"
 	}
 	];
 });
