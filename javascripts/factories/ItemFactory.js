@@ -75,10 +75,10 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG, IMGUR) {
 
 	var postNewBoard = function(newBoard){
 		return $q((resolve, reject) => {
-			$http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify({
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/boards.json`, JSON.stringify({
 				boardid: newBoard.boardid,
 				uid: newBoard.uid,
-				title: newBoard.imgtitle
+				title: newBoard.title
 			})
 			)
 			.success(function(postResponse){

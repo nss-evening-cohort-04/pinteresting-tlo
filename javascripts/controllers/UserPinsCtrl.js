@@ -44,15 +44,32 @@ app.controller("UserPinsCtrl", function($scope, $rootScope, $location, ItemFacto
       });
   };
 
-  $scope.addNewPin = function(imgID){
+  $scope.addNewPin = function(picLink){
     $location.url("/new-pin");
+    picLink = picLink;
+    console.log("img url being passed", picLink);
+    imgLink = picLink;
+    console.log("img", imgLink);
   };
 
-  $scope.addPinToBoard = function(){
+  let imgLink = [];
+
+  $scope.addPinToBoard = function(Boardid){
+    console.log("board id to pin to", Boardid);
+    $scope.newPin.uid = $rootScope.user.uid;
+    $scope.newPin.boardid = Boardid;
+    $scope.newPin.url = imgLink;
     ItemFactory.postNewPin($scope.newPin).then(function(itemId){
       $scope.newPin = {};
       });
-  }
+  };
 
+  $scope.addNewBoard = function(){
+    $scope.newBoard.uid = $rootScope.user.uid;
+    $scope.newBoard.boardid = $scope.newBoard.title;
+    ItemFactory.postNewBoard($scope.newBoard).then(function(itemId){
+      $scope.newBoard = {};
+      });
+  };
 
 });

@@ -1,7 +1,7 @@
 <h1>Choose a Board</h1>
 
 <div class="row" ng-repeat="board in boards" ng-show="BoardContainer">
-		<div class="boards col-xs-4" ng-click="addToBoard(board.id,board.title)">
+		<div class="boards col-xs-4" ng-click="addPinToBoard(board.id)">
 			<h1>{{board.title}}</h1>
 				<div class="col-xs-6" ng-repeat="pin in pins | filter:board.id">
 					<img class="imgSize" src="{{pin.url}}">
@@ -9,7 +9,7 @@
 		</div>
 </div>
 
-<div class="col-xs-1"><button class="btn btn-danger" ng-model="newPin.url" ng-click="addPinToBoard()">Submit<i class="fa fa-tag"></i></button>
-<div class="col-xs-1"><button class="btn btn-danger" ng-model="newBoard.title" ng-click="addNewBoard()">New Board<i class="fa fa-tag"></i></button>
+<!-- <div class="col-xs-1"><button class="btn btn-danger" ng-model="newPin.url" ng-click="addPinToBoard()">Submit<i class="fa fa-tag"></i></button> -->
+<div class="col-xs-1"><button class="btn btn-danger" ng-click="addNewBoard()">New Board<i class="fa fa-tag"></i></button>
 
-<input type="text" class="form-control" placeholder="New Board Name ..." ng-model="newBoardName">
+<input type="text" class="" placeholder="New Board Title" ng-model="newBoard.title">
