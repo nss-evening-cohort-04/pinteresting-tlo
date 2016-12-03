@@ -11,6 +11,9 @@ app.controller("NavCtrl", function($scope){
     {
       name:"New Pins",
       url:"#/user-new-pins"
-  }
+  },
+	{	name:"My Boards",
+		url:"#/user-pins"
+	}
 	];
 });

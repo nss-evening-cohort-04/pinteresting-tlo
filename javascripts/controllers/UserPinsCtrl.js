@@ -5,6 +5,9 @@ app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
   $scope.boards = [];    //we put this info (data for people/to do items/etc) in FB database
   $scope.pics = [];
 
+  $scope.BoardContainer = true;
+  $scope.SelectedBoard = false;
+
   let getItems = function(){
     ItemFactory.getBoards($rootScope.user.uid).then(function(boards){ //what is here needs to be right below this
       $scope.boards = boards;
@@ -21,6 +24,14 @@ app.controller("UserPinsCtrl", function($scope, $rootScope, ItemFactory){
       getItems();
     });
   };
+
+  $scope.selectedBoard = function(Boardid,Title){
+    $scope.BoardContainer = false;
+    $scope.SelectedBoard = true;
+    console.log("boardid", Boardid);
+    $scope.SelectedBoardID = Boardid;
+    $scope.SelectedBoardTitle = Title;
+};
 
   $scope.imgurResults = [];
 
