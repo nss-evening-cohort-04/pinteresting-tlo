@@ -49,9 +49,9 @@ app.config(function($routeProvider){
       resolve: {isAuth}
     })
     .when('/boards', {
-    	templateUrl: 'partials/boards.html',
-    	controller: 'UserPinsCtrl',
-    	resolve: {isAuth}
+      templateUrl: 'partials/boards.html',
+      controller: 'UserPinsCtrl',
+      resolve: {isAuth}
     })
     .otherwise('/auth');
 
