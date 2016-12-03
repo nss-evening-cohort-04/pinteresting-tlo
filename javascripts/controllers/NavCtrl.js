@@ -4,14 +4,10 @@ app.controller("NavCtrl", function($scope){
 	{	name:"Logout",
 		url: "#/logout"
 	},
-   {
-      name:"All Pins",
-      url:"#/user-pins"
-  },
-    {
-      name:"New Pins",
-      url:"#/user-new-pins"
-  },
+   	{
+      name:"Search",
+      url:"#/search"
+  	},
 	{	name:"My Boards",
 		url:"#/boards"
 	}
